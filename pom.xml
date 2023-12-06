@@ -65,8 +65,33 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3.2</version>
 		</dependency>
+        
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
+        
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.16.v20140903</version>
+                <configuration>
+                    <webAppConfig>
+                        <contextPath>/primefaces-reflection-crud</contextPath>
+                        <overrideDescriptor>src/main/webapp/WEB-INF/web-overwrite.xml</overrideDescriptor>
+                    </webAppConfig>
+                    <webXml>${project.build.directory}/classes/WEB-INF/web.xml</webXml>
+                    <webAppSourceDirectory>/src/main/webapp</webAppSourceDirectory>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
+                    <stopPort>9966</stopPort>
+                    <stopKey>foo</stopKey>
+                </configuration>
+            </plugin>
+        </plugins>        
 	</build>
 </project>
