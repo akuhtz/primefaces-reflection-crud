@@ -1,28 +1,27 @@
 package it.strazz.primefaces;
 
-import it.strazz.primefaces.detail.FormControlBuilder;
-import it.strazz.primefaces.detail.ReflectionDynaFormModelBuilder;
-
 import java.beans.PropertyDescriptor;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
 import org.apache.commons.beanutils.MethodUtils;
 import org.primefaces.extensions.model.dynaform.DynaFormModel;
 
-@ManagedBean
+import it.strazz.primefaces.detail.FormControlBuilder;
+import it.strazz.primefaces.detail.ReflectionDynaFormModelBuilder;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Named;
+
+@Named
 @ViewScoped
 public class BasicDetailExampleBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	private Object model;
-	private Class currentClass;
+	private Class<?> currentClass;
 	private String currentClassName;
 	private Integer id;
 	private Boolean disabled = false;
@@ -39,7 +38,7 @@ public class BasicDetailExampleBean implements Serializable{
 			if(id != null){
 				this.model = MethodUtils.invokeExactStaticMethod(currentClass, "get", new Object[]{id});
 			}else{
-				this.model = currentClass.newInstance();
+				this.model = currentClass.getDeclaredConstructor().newInstance();
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
