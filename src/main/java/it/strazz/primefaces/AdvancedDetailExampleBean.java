@@ -1,22 +1,21 @@
 package it.strazz.primefaces;
 
-import it.strazz.primefaces.detail.DynaPropertyModel;
-import it.strazz.primefaces.detail.FormControlBuilder;
-import it.strazz.primefaces.detail.ReflectionDynaFormModelBuilder;
-
 import java.beans.PropertyDescriptor;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
 import org.primefaces.extensions.model.dynaform.DynaFormControl;
 import org.primefaces.extensions.model.dynaform.DynaFormLabel;
 import org.primefaces.extensions.model.dynaform.DynaFormRow;
 
-@ManagedBean
+import it.strazz.primefaces.detail.DynaPropertyModel;
+import it.strazz.primefaces.detail.FormControlBuilder;
+import it.strazz.primefaces.detail.ReflectionDynaFormModelBuilder;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Named;
+
+@Named
 @ViewScoped
 public class AdvancedDetailExampleBean extends BasicDetailExampleBean{
 	

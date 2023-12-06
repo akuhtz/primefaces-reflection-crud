@@ -1,19 +1,18 @@
 package it.strazz.primefaces;
 
-import it.strazz.primefaces.columns.ColumnModel;
-import it.strazz.primefaces.columns.ReflectionColumnModelBuilder;
-import it.strazz.primefaces.model.User;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-
 import org.apache.commons.beanutils.MethodUtils;
 
-@ManagedBean
+import it.strazz.primefaces.columns.ColumnModel;
+import it.strazz.primefaces.columns.ReflectionColumnModelBuilder;
+import it.strazz.primefaces.model.User;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Named;
+
+@Named
 @ViewScoped
 public class ViewParamExampleBean implements Serializable{
 	
