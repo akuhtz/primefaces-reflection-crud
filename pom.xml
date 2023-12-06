@@ -86,7 +86,7 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.9.v20180320</version>
+                <version>9.4.53.v20231009</version>
                 <configuration>
                     <webAppConfig>
                         <contextPath>/primefaces-reflection-crud</contextPath>
@@ -97,26 +97,14 @@
                     <webAppSourceDirectory>/src/main/webapp</webAppSourceDirectory>
                     <stopPort>9966</stopPort>
                     <stopKey>foo</stopKey>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>jetty.port</name>
+                            <value>9998</value>
+                        </systemProperty>
+                    </systemProperties>
                 </configuration>
             </plugin>
-<!--        
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>8.1.16.v20140903</version>
-                <configuration>
-                    <webAppConfig>
-                        <contextPath>/primefaces-reflection-crud</contextPath>
-                        <overrideDescriptor>src/main/webapp/WEB-INF/web-overwrite.xml</overrideDescriptor>
-                    </webAppConfig>
-                    <webXml>${project.build.directory}/classes/WEB-INF/web.xml</webXml>
-                    <webAppSourceDirectory>/src/main/webapp</webAppSourceDirectory>
-                    <scanIntervalSeconds>1</scanIntervalSeconds>
-                    <stopPort>9966</stopPort>
-                    <stopKey>foo</stopKey>
-                </configuration>
-            </plugin>
--->
         </plugins>        
 	</build>
 </project>
