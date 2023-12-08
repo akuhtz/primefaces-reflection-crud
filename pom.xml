@@ -22,7 +22,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         -->
         
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
         
 	</properties>
 	
@@ -54,18 +54,24 @@
             <version>${apache-faces.version}</version>
             <scope>compile</scope>
         </dependency>
-        
+<!--        
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
 			<version>5.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-
+-->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.4</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -83,7 +89,7 @@
         <dependency>
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <version>3.0.1</version>
+            <version>4.0.1</version>
         </dependency>
         
         <!-- CDI 2.0 Impl http://fritzthecat-blog.blogspot.com/2019/08/jsf-23-maven-project-in-eclipse.html -->
@@ -91,7 +97,7 @@
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet-core</artifactId>
-            <version>4.0.3.Final</version>
+            <version>5.1.2.Final</version>
         </dependency>
         
 	</dependencies>
@@ -100,9 +106,9 @@
         
         <plugins>
             <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>11.0.18</version>
+                <groupId>org.eclipse.jetty.ee10</groupId>
+                <artifactId>jetty-ee10-maven-plugin</artifactId>
+                <version>12.0.4</version>
                 <configuration>
                     <webApp>
                         <contextPath>/primefaces-reflection-crud</contextPath>
